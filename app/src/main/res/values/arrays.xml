@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="Emails">
-        <item>email1@test.com</item>
-        <item>email2@test.com</item>
-        <item>email3@test.com</item>
-        <item>email4@test.com</item>
-        <item>email5@test.com</item>
+        <item>email1</item>
+        <item>email2</item>
+        <item>email3</item>
+        <item>email4</item>
+        <item>email5</item>
     </string-array>
 
     <string-array name="Passwords">
         <item>pass1</item>
-        <item>pass2</item>tte
+        <item>pass2</item>
         <item>pass3</item>
         <item>pass4</item>
         <item>pass5</item>
