@@ -1,7 +1,38 @@
 <resources>
     <string name="app_name">laba2</string>
-    <string name="title_activity_gif">GifActivity</string>
+    <string name="title_activity_gif">BottomNavigationActivity</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="title_list">List</string>
+    <string name="title_selected">Selected</string>
+    <string name="title_favorite">Favorite</string>
+    <string-array name="recipes_name">
+        <item>Сыр</item>
+        <item>Арбуз</item>
+        <item>Шашлык из баранины</item>
+        <item>Шашлык из свинины</item>
+        <item>Шашлык из курицы</item>
+        <item>Курица в духовке</item>
+        <item>Краб</item>
+        <item>Пиво</item>
+        <item>Закваска</item>
+        <item>Гвозди</item>
+        <item>Крабовый салат</item>
+        <item>Оливье</item>
+        <item>Наполеон</item>
+        <item>Борщ</item>
+        <item>Суп</item>
+        <item>Щи</item>
+        <item>Окрошка</item>
+        <item>Селедка</item>
+        <item>Мороженное</item>
+        <item>Бургер</item>
+        <item>Еще бургер</item>
+        <item>Рис</item>
+        <item>Квас</item>
+
+    </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

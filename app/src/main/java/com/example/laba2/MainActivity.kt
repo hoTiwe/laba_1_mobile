@@ -27,7 +27,7 @@ class MainActivity : ComponentActivity() {
         sign_button?.setOnClickListener{
             if(array1.contains(email.text.toString())) {
                 if(array2[array1.indexOf(email.text.toString())]==pass.text.toString()) {
-                    val nextIntent = Intent(this, GifActivity::class.java);
+                    val nextIntent = Intent(this, BottomNavigationActivity::class.java);
                     startActivity(nextIntent)
                 }
                 else{

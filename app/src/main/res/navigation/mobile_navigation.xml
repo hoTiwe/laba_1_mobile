@@ -3,23 +3,28 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/list_recieps">
 
     <fragment
-        android:id="@+id/navigation_home"
-        android:name="com.example.laba2.ui.home.HomeFragment"
-        android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        android:id="@+id/list_recieps"
+        android:name="com.example.laba2.fragments.ListRecipes"
+        android:label="@string/title_list"
+        tools:layout="@layout/fragment_list_recipes" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.example.laba2.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/selected"
+        android:label="@string/title_selected"
+        android:name="com.example.laba2.fragments.SelectedRecipe"
+        tools:layout="@layout/fragment_selected_recipe" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.example.laba2.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/favorite"
+        android:label="@string/title_favorite"
+        android:name="com.example.laba2.fragments.FavoriteRecipes"
+        tools:layout="@layout/fragment_favourite_recipes" />
+
+    <action
+        android:id="@+id/list_to_selected"
+        app:destination="@+id/fragment_selected_recipes"/>
+
 </navigation>

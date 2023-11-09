@@ -6,6 +6,7 @@
         <item>email3</item>
         <item>email4</item>
         <item>email5</item>
+        <item>1</item>
     </string-array>
 
     <string-array name="Passwords">
@@ -14,5 +15,6 @@
         <item>pass3</item>
         <item>pass4</item>
         <item>pass5</item>
+        <item>1</item>
     </string-array>
 </resources>
