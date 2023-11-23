@@ -1,20 +1,22 @@
 package com.example.laba2.adapter
 
-import android.annotation.SuppressLint
+import android.app.Activity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.navigation.Navigation
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.laba2.R
-import com.example.laba2.model.Recipe
+import com.example.laba2.database.entities.RecipeDB
+import com.example.laba2.fragments.Listener
 
 class AdapterListRecipes (
-    private val recipeList: List<Recipe>
-): RecyclerView.Adapter<AdapterListRecipes.RecipeViewHolder>() {
+    private val recipeList: List<RecipeDB>,
+    private val activity: Activity,
+    private val update: () -> Unit
+): RecyclerView.Adapter<AdapterListRecipes.RecipeViewHolder>(), Listener {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecipeViewHolder {
         val view= LayoutInflater.from(parent.context).inflate(R.layout.recipe_card,parent,false)
@@ -25,15 +27,8 @@ class AdapterListRecipes (
         holder.recipe_dif.text = recipeList[position].Difficulty.toString()
         holder.recipe_cal.text = recipeList[position].Calorie.toString()
         holder.recipe_name.text = recipeList[position].Name
-        holder.itemView.setOnClickListener{view ->
-            val bundle = Bundle()
-            bundle.putString("name", recipeList[position].Name)
-            bundle.putString("Calorie", recipeList[position].Calorie.toString())
-            bundle.putString("Difficulty", recipeList[position].Difficulty.toString())
-            bundle.putString("Time", recipeList[position].Time.toString())
-            bundle.putString("Ingredients", recipeList[position].Ingredients)
-
-            Navigation.findNavController(view).navigate(R.id.selected, bundle)
+        holder.itemView.setOnClickListener{
+            onClick(recipeList[position], it)
         }
     }
 
