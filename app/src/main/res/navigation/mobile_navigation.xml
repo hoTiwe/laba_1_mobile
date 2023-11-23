@@ -9,13 +9,21 @@
         android:id="@+id/list_recieps"
         android:name="com.example.laba2.fragments.ListRecipes"
         android:label="@string/title_list"
-        tools:layout="@layout/fragment_list_recipes" />
+        tools:layout="@layout/fragment_list_recipes" >
+        <action
+            android:id="@+id/action_list_recieps_to_selected"
+            app:destination="@id/selected" />
+    </fragment>
 
     <fragment
         android:id="@+id/selected"
         android:label="@string/title_selected"
         android:name="com.example.laba2.fragments.SelectedRecipe"
-        tools:layout="@layout/fragment_selected_recipe" />
+        tools:layout="@layout/fragment_selected_recipe" >
+        <action
+            android:id="@+id/action_selected_to_list_recieps"
+            app:destination="@id/list_recieps" />
+    </fragment>
 
     <fragment
         android:id="@+id/favorite"

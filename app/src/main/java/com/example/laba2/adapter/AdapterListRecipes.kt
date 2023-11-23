@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.laba2.R
 import com.example.laba2.model.Recipe
@@ -16,15 +18,14 @@ class AdapterListRecipes (
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecipeViewHolder {
         val view= LayoutInflater.from(parent.context).inflate(R.layout.recipe_card,parent,false)
-        return  RecipeViewHolder(view)
+        return RecipeViewHolder(view)
     }
 
-    @SuppressLint("NewApi")
     override fun onBindViewHolder(holder: RecipeViewHolder, position: Int) {
         holder.recipe_dif.text = recipeList[position].Difficulty.toString()
         holder.recipe_cal.text = recipeList[position].Calorie.toString()
         holder.recipe_name.text = recipeList[position].Name
-        holder.itemView.setOnClickListener{
+        holder.itemView.setOnClickListener{view ->
             val bundle = Bundle()
             bundle.putString("name", recipeList[position].Name)
             bundle.putString("Calorie", recipeList[position].Calorie.toString())
@@ -32,9 +33,8 @@ class AdapterListRecipes (
             bundle.putString("Time", recipeList[position].Time.toString())
             bundle.putString("Ingredients", recipeList[position].Ingredients)
 
-            //Navigation.findNavController(it).navigate(R.id.selected, bundle)
+            Navigation.findNavController(view).navigate(R.id.selected, bundle)
         }
-
     }
 
     override fun getItemCount(): Int {

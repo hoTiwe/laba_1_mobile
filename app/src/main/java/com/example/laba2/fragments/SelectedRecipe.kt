@@ -15,13 +15,12 @@ class SelectedRecipe : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_selected_recipe, container, false)
         view.findViewById<TextView>(R.id.name).text = arguments?.getString("name")
-        view.findViewById<TextView>(R.id.difficulty).text = "Уровень сложности: " + arguments?.getString("Сложно")
-        view.findViewById<TextView>(R.id.calorie).text = "Калорийность: " + arguments?.getString("Каллорийно")
-        view.findViewById<TextView>(R.id.ingridient).text = "Ингредиенты: " + arguments?.getString("Ингридиентно")
-        view.findViewById<TextView>(R.id.time).text = "Время приготовления: " + arguments?.getString("Временно")
+        view.findViewById<TextView>(R.id.difficulty).text = "Уровень сложности: " + arguments?.getString("Difficulty")
+        view.findViewById<TextView>(R.id.calorie).text = "Калорийность: " + arguments?.getString("Calorie")
+        view.findViewById<TextView>(R.id.ingridient).text = "Ингредиенты: " + arguments?.getString("Ingredients")
+        view.findViewById<TextView>(R.id.time).text = "Время приготовления: " + arguments?.getString("Time")
         return view
     }
 

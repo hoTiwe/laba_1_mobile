@@ -9,7 +9,7 @@
         android:id="@+id/selected"
         android:icon="@drawable/selected_recipe"/>
 
-<item android:title="Любимые рецепты"
+    <item android:title="Любимые рецепты"
         android:id="@+id/favorite"
         android:icon="@drawable/favorite_recipe"/>
 
