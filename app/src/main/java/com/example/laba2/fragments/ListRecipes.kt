@@ -1,5 +1,8 @@
 package com.example.laba2.fragments
 
+import android.app.Activity
+import android.app.AlertDialog
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -12,6 +15,7 @@ import com.example.laba2.R
 import com.example.laba2.adapter.AdapterListRecipes
 import com.example.laba2.api.Common
 import com.example.laba2.database.DataBase
+import com.example.laba2.database.entities.FavoriteUserRecipe
 import com.example.laba2.database.entities.RecipeDB
 import retrofit2.Call
 import retrofit2.Callback
@@ -65,5 +69,36 @@ interface Listener {
         bundle.putString("Ingredients", recipe.Ingredients)
 
         Navigation.findNavController(view).navigate(R.id.selected, bundle)
+    }
+
+    fun onLongClick(recipe: RecipeDB, activity: Activity){
+        thread {
+            val id = activity.getSharedPreferences("user", Context.MODE_PRIVATE).getInt("id",0)
+            val dao = DataBase.getDatabase(activity).getDao()
+            if (!dao.checkFavoriteRecipeExist(id, recipe.idRecipe!!)){
+                activity.runOnUiThread {
+                    AlertDialog.Builder(activity).setCancelable(true)
+                        .setMessage(recipe.Name)
+                        .setTitle("Добавить рецепт в список любимых рецептов?")
+                        .setNegativeButton("отмена") { _, _ -> }
+                        .setPositiveButton("в избранное") { _, _ ->
+                            thread { dao.insertToFavoriteRecipes(FavoriteUserRecipe(id, recipe.idRecipe))
+                                println(dao.getFavoriteRecipesByUserId(id)) }
+                        }
+                        .create().show()
+                }
+            }
+            else{
+                activity.runOnUiThread {
+                    AlertDialog.Builder(activity).setCancelable(true)
+                        .setMessage(recipe.Name)
+                        .setTitle("Удалить рецепт из списка любимых рецептов?")
+                        .setNegativeButton("отмена") { _, _ -> }
+                        .setPositiveButton("удалить") { _, _ ->
+                            thread {  dao.deleteFavoriteRecipesByUserId(id, recipe.idRecipe) }
+                        }.create().show()
+                }
+            }
+        }
     }
 }

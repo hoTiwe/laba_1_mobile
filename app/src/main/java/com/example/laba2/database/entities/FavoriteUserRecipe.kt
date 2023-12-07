@@ -4,7 +4,7 @@ import androidx.room.Entity
 import androidx.room.ForeignKey
 
 @Entity(
-    tableName = "Favorite_user-recipe",
+    tableName = "Favorite_user_recipe",
     primaryKeys = ["idUser", "idRecipe"],
     foreignKeys = [
         ForeignKey(

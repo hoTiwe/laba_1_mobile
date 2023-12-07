@@ -1,12 +1,10 @@
 package com.example.laba2.adapter
 
 import android.app.Activity
-import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.example.laba2.R
 import com.example.laba2.database.entities.RecipeDB
@@ -29,6 +27,11 @@ class AdapterListRecipes (
         holder.recipe_name.text = recipeList[position].Name
         holder.itemView.setOnClickListener{
             onClick(recipeList[position], it)
+        }
+        holder.itemView.setOnLongClickListener {
+            onLongClick(recipeList[position], activity = activity)
+            update()
+            true
         }
     }
 

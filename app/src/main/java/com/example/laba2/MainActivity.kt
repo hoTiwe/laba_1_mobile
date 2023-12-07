@@ -28,9 +28,6 @@ class MainActivity : ComponentActivity() {
         passField = findViewById(R.id.password)
         sign_button = findViewById(R.id.button)
 
-        val array1 = applicationContext.resources.getStringArray(R.array.Emails)
-        val array2 = applicationContext.resources.getStringArray(R.array.Passwords)
-
         db = DataBase.getDatabase(this)
         thread {
             db.getDao().createUser(User(login = "test", password = "test"))
